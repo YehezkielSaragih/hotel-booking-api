@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d892dd7-4f91-4419-950e-1bd0f80517f2" name="Changes" comment="creating entity">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hotelbookingsystem/hotelbookingsystem/src/main/java/com/example/hotelbookingsystem/entity/Booking.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotelbookingsystem/hotelbookingsystem/src/main/java/com/example/hotelbookingsystem/entity/Booking.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hotelbookingsystem/hotelbookingsystem/src/main/java/com/example/hotelbookingsystem/entity/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotelbookingsystem/hotelbookingsystem/src/main/java/com/example/hotelbookingsystem/entity/Room.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hotelbookingsystem/hotelbookingsystem/src/main/java/com/example/hotelbookingsystem/repository/BookingRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotelbookingsystem/hotelbookingsystem/src/main/java/com/example/hotelbookingsystem/repository/BookingRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hotelbookingsystem/hotelbookingsystem/src/main/java/com/example/hotelbookingsystem/repository/RoomRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotelbookingsystem/hotelbookingsystem/src/main/java/com/example/hotelbookingsystem/repository/RoomRepo.java" afterDir="false" />
-    </list>
+    <list default="true" id="9d892dd7-4f91-4419-950e-1bd0f80517f2" name="Changes" comment="controller" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -81,11 +75,20 @@
       <option name="project" value="LOCAL" />
       <updated>1757304755066</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="controller">
+      <option name="closed" value="true" />
+      <created>1757306652293</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1757306652293</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="template fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="template fix" />
+    <MESSAGE value="controller" />
+    <option name="LAST_COMMIT_MESSAGE" value="controller" />
   </component>
 </project>
