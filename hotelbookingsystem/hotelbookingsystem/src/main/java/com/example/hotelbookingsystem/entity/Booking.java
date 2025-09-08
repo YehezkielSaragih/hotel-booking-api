@@ -9,7 +9,6 @@ public class Booking {
     private Date checkIn;
     private Date checkOut;
     private List<Room> roomList;
-
     private Date createdAt;
     private Date updatedAt;
     private Date deletedAt;

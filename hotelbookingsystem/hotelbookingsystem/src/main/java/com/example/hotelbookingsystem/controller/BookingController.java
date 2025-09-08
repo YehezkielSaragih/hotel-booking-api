@@ -1,7 +1,9 @@
 package com.example.hotelbookingsystem.controller;
 
 import com.example.hotelbookingsystem.entity.Booking;
+import com.example.hotelbookingsystem.entity.Room;
 import com.example.hotelbookingsystem.repository.BookingRepo;
+import com.example.hotelbookingsystem.repository.RoomRepo;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.*;
@@ -9,6 +11,7 @@ import org.springframework.http.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -19,10 +22,24 @@ public class BookingController {
 
     @Autowired
     private BookingRepo bookingRepo;
+    @Autowired
+    private RoomRepo roomRepo;
 
     // POST /bookings buat booking
     @PostMapping
     public ResponseEntity<Booking> createBooking(@RequestBody Booking booking) {
+        List<Room> validRooms = new ArrayList<>();
+
+        if (booking.getRoomList() != null) {
+            for (Room r : booking.getRoomList()) {
+                roomRepo.findById(r.getRoomId()).ifPresent(room -> {
+                    room.setAvailable(false);
+                    roomRepo.save(room);
+                    validRooms.add(room);
+                });
+            }
+        }
+        booking.setRoomList(validRooms);
         Booking savedBooking = bookingRepo.save(booking);
         return ResponseEntity.ok(savedBooking);
     }
@@ -44,8 +61,8 @@ public class BookingController {
     }
 
     // PUT /bookings/{id} ubah tanggal booking
-    @PatchMapping(path = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Booking> patchBookingDates(
+    @PutMapping(path="/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Booking> updateBooking(
             @PathVariable Long id,
             @RequestBody Map<String, Object> body
     ) {

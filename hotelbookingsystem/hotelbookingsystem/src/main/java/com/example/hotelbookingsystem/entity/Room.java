@@ -6,7 +6,7 @@ public class Room {
 
     private Long roomId;
     private boolean isAvailable;
-    private List<Booking> bookingList;
+
 
     private Date createdAt;
     private Date updatedAt;
@@ -32,14 +32,6 @@ public class Room {
 
     public void setAvailable(boolean available) {
         isAvailable = available;
-    }
-
-    public List<Booking> getBookingList() {
-        return bookingList;
-    }
-
-    public void setBookingList(List<Booking> bookingList) {
-        this.bookingList = bookingList;
     }
 
     public Date getCreatedAt() {

@@ -1,13 +1,14 @@
 package com.example.hotelbookingsystem.repository;
 
 import com.example.hotelbookingsystem.entity.Booking;
-import com.example.hotelbookingsystem.entity.Room;
+import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
 
+@Repository
 public class BookingRepo {
     private final Map<Long, Booking> data = new ConcurrentHashMap<Long, Booking>();
     private final AtomicLong seq = new AtomicLong(0);
@@ -42,13 +43,6 @@ public class BookingRepo {
         return b;
     }
 
-    public void delete(Long id) {
-        Booking b = findById(id).orElse(null);
-        if(b == null) return;
-
-        b.setDeletedAt(new Date());
-        data.put(b.getBookingId(), b);
-    }
-
+    public void delete(Long id) { data.remove(id); }
     public boolean exists(Long id) { return data.containsKey(id); }
 }
