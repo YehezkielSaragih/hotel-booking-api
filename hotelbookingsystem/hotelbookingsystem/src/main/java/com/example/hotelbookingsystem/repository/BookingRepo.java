@@ -16,15 +16,11 @@ public class BookingRepo {
     public List<Booking> getAll() { return new ArrayList<Booking>(data.values()); }
     public Optional<Booking> findById(Long id) { return Optional.ofNullable(data.get(id)); }
 
-    public List<Booking> findByDate(LocalDate date) {
+    public List<Booking> findByDate(Date date) {
         List<Booking> result = new ArrayList<>();
         for (Booking b : data.values()) {
-            if (b.getCheckIn() != null && b.getCheckOut() != null) {
-                LocalDate in = b.getCheckIn().toInstant().atZone(java.time.ZoneId.systemDefault()).toLocalDate();
-                LocalDate out = b.getCheckOut().toInstant().atZone(java.time.ZoneId.systemDefault()).toLocalDate();
-                if ((date.isEqual(in) || date.isAfter(in)) && date.isBefore(out)) {
-                    result.add(b);
-                }
+            if(b.getCheckIn().after(date) &&  b.getCheckOut().before(date)){
+                result.add(b);
             }
         }
         return result;

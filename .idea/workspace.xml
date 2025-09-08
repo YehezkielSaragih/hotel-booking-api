@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9d892dd7-4f91-4419-950e-1bd0f80517f2" name="Changes" comment="integration">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hotelbookingsystem/hotelbookingsystem/src/main/java/com/example/hotelbookingsystem/controller/BookingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotelbookingsystem/hotelbookingsystem/src/main/java/com/example/hotelbookingsystem/controller/BookingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hotelbookingsystem/hotelbookingsystem/src/main/java/com/example/hotelbookingsystem/controller/RoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotelbookingsystem/hotelbookingsystem/src/main/java/com/example/hotelbookingsystem/controller/RoomController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hotelbookingsystem/hotelbookingsystem/src/main/java/com/example/hotelbookingsystem/repository/BookingRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotelbookingsystem/hotelbookingsystem/src/main/java/com/example/hotelbookingsystem/repository/BookingRepo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

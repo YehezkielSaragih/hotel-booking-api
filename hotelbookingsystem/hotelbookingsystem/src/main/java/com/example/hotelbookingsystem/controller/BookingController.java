@@ -57,10 +57,10 @@ public class BookingController {
 
     // GET /bookings list booking (filter by date)
     @GetMapping
-    public ResponseEntity<List<Booking>> getBookings(@RequestParam(required = false) LocalDate date) {
-        if (date != null) {
-            return ResponseEntity.ok(bookingRepo.findByDate(date));
-        }
+    public ResponseEntity<List<Booking>> getBookings(@RequestParam(required = false) Date date) {
+
+        if (date != null) return ResponseEntity.ok(bookingRepo.findByDate(date));
+
         return ResponseEntity.ok(bookingRepo.getAll());
     }
 
