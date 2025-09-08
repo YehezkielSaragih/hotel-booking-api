@@ -10,8 +10,6 @@ import org.springframework.http.*;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -57,10 +55,22 @@ public class BookingController {
 
     // GET /bookings list booking (filter by date)
     @GetMapping
-    public ResponseEntity<List<Booking>> getBookings(@RequestParam(required = false) Date date) {
-
-        if (date != null) return ResponseEntity.ok(bookingRepo.findByDate(date));
-
+    public ResponseEntity<List<Booking>> getBookings(@RequestParam(required = false) String date) {
+        Date targetDate = null;
+        // Convert string date to date format
+        if (date != null) {
+            try {
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                targetDate = sdf.parse(date);
+                System.out.println(targetDate);
+            } catch (ParseException e) {
+                return ResponseEntity.badRequest().body(null);
+            }
+        }
+        // Return booking
+        if (targetDate != null) {
+            return ResponseEntity.ok(bookingRepo.findByDate(targetDate));
+        }
         return ResponseEntity.ok(bookingRepo.getAll());
     }
 

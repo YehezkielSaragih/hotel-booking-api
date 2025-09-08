@@ -3,13 +3,13 @@ package com.example.hotelbookingsystem.repository;
 import com.example.hotelbookingsystem.entity.Booking;
 import org.springframework.stereotype.Repository;
 
-import java.time.LocalDate;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
 
 @Repository
 public class BookingRepo {
+
     private final Map<Long, Booking> data = new ConcurrentHashMap<Long, Booking>();
     private final AtomicLong seq = new AtomicLong(0);
 
@@ -19,7 +19,7 @@ public class BookingRepo {
     public List<Booking> findByDate(Date date) {
         List<Booking> result = new ArrayList<>();
         for (Booking b : data.values()) {
-            if(b.getCheckIn().after(date) &&  b.getCheckOut().before(date)){
+            if(!b.getCheckIn().after(date) && b.getCheckOut().after(date)){
                 result.add(b);
             }
         }

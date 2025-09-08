@@ -9,6 +9,7 @@ import java.util.concurrent.atomic.AtomicLong;
 
 @Repository
 public class RoomRepo {
+
     private final Map<Long, Room> data = new ConcurrentHashMap<Long, Room>();
     private final AtomicLong seq = new AtomicLong(0);
 
