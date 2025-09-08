@@ -3,6 +3,7 @@ package com.example.hotelbookingsystem.repository;
 import com.example.hotelbookingsystem.entity.Booking;
 import com.example.hotelbookingsystem.entity.Booking;
 
+import java.time.LocalDate;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
@@ -17,8 +18,26 @@ public class BookingRepo {
 
     public List<Booking> findAll() { return new ArrayList<Booking>(data.values()); }
     public Optional<Booking> findById(Long id) { return Optional.ofNullable(data.get(id)); }
+    public List<Booking> findByDate(LocalDate date) {
+        return data.values().stream()
+                .filter(b -> b.getCheckIn() != null && b.getCheckOut() != null)
+                .filter(b -> {
+                    LocalDate in = b.getCheckIn().toInstant()
+                            .atZone(java.time.ZoneId.systemDefault())
+                            .toLocalDate();
+                    LocalDate out = b.getCheckOut().toInstant()
+                            .atZone(java.time.ZoneId.systemDefault())
+                            .toLocalDate();
+                    return (date.isEqual(in) || date.isAfter(in)) && date.isBefore(out);
+                })
+                .toList();
+    }
+
     public Booking save(Booking b) {
-        if (b.getBookingId() == null) b.setBookingId(seq.incrementAndGet());
+        if (b.getBookingId() == null) {
+            b.setBookingId(seq.incrementAndGet());
+            b.setCreatedAt(new Date());
+        }
         data.put(b.getBookingId(), b);
         return b;
     }

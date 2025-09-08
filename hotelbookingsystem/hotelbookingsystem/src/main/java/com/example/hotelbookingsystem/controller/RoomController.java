@@ -17,14 +17,14 @@ public class RoomController {
     // POST /rooms tambah kamar
     @PostMapping
     public ResponseEntity<Room> createRoom(@RequestBody Room room) {
-        Room savedRoom = roomRepo.create(room);
+        Room savedRoom = roomRepo.save(room);
         return ResponseEntity.ok(savedRoom);
     }
 
     // GET /rooms lihat semua kamar
     @GetMapping
     public ResponseEntity<List<Room>> getAllRooms() {
-        return ResponseEntity.ok(roomRepo.getAll());
+        return ResponseEntity.ok(roomRepo.findAll());
     }
 
     // GET /rooms/{id}/availability cek ketersediaan kamar

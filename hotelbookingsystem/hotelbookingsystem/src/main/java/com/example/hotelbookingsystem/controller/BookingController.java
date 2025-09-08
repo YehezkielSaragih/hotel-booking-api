@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.*;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.*;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class BookingController {
@@ -17,7 +19,7 @@ public class BookingController {
     // POST /bookings buat booking
     @PostMapping
     public ResponseEntity<Booking> createBooking(@RequestBody Booking booking) {
-        Booking savedBooking = bookingRepo.create(booking);
+        Booking savedBooking = bookingRepo.save(booking);
         return ResponseEntity.ok(savedBooking);
     }
 
@@ -25,25 +27,31 @@ public class BookingController {
     @GetMapping
     public ResponseEntity<List<Booking>> getBookings(@RequestParam(required = false) LocalDate date) {
         if (date != null) {
-            return ResponseEntity.ok(bookingRepo.getByDate(date));
+            return ResponseEntity.ok(bookingRepo.findByDate(date));
         }
-        return ResponseEntity.ok(bookingRepo.getAll());
+        return ResponseEntity.ok(bookingRepo.findAll());
     }
 
     // GET /bookings/{id} detail booking
     @GetMapping("/{id}")
     public ResponseEntity<Booking> getBookingById(@PathVariable Long id) {
-        return ResponseEntity.ok(bookingRepo.getById(id));
+        return bookingRepo.findById(id).map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
 
     // PUT /bookings/{id} ubah tanggal booking
-    @PutMapping("/{id}")
-    public ResponseEntity<Booking> updateBookingDate(
-            @PathVariable Long id,
-            @RequestParam LocalDate newStartDate,
-            @RequestParam LocalDate newEndDate) {
-        Booking updated = bookingRepo.update(id, newStartDate, newEndDate);
-        return ResponseEntity.ok(updated);
+    @PatchMapping(path="/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Booking> patch(@PathVariable Long id, @RequestBody Map<String, Object> body) {
+        Booking b = bookingRepo.findById(id).orElse(null);
+        if (b == null) return ResponseEntity.notFound().build();
+        if (body.containsKey("checkIn")) {
+            b.setCheckIn(java.sql.Date.valueOf(body.get("checkIn"))); // format yyyy-MM-dd
+        }
+        if (body.containsKey("checkOut")) {
+            b.setCheckOut(java.sql.Date.valueOf(body.get("checkOut"))); // format yyyy-MM-dd
+        }
+        b.setUpdatedAt(new Date()); // update timestamp
+        return ResponseEntity.ok(bookingRepo.save(b));
     }
 
     // DELETE /bookings/{id} batalkan booking

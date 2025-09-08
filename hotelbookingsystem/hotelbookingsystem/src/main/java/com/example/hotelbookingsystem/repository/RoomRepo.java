@@ -13,11 +13,11 @@ public class RoomRepo {
     private final AtomicLong seq = new AtomicLong(0);
 
     public RoomRepo(){
-        save( new Room(null, true, new Date() ));
-        save( new Room(null, true, new Date() ));
-        save( new Room(null, true, new Date() ));
-        save( new Room(null, true, new Date() ));
-        save( new Room(null, true, new Date() ));
+        create( new Room(null, true, new Date() ));
+        create( new Room(null, true, new Date() ));
+        create( new Room(null, true, new Date() ));
+        create( new Room(null, true, new Date() ));
+        create( new Room(null, true, new Date() ));
     }
 
     public List<Room> findAll() { return new ArrayList<Room>(data.values()); }
