@@ -5,7 +5,6 @@ import com.example.hotelbookingsystem.repository.RoomRepo;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.*;
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
