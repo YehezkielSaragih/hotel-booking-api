@@ -1,8 +1,6 @@
 package com.example.hotelbookingsystem.repository;
 
 import com.example.hotelbookingsystem.entity.Booking;
-import com.example.hotelbookingsystem.entity.Booking;
-
 import java.time.LocalDate;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
@@ -16,21 +14,21 @@ public class BookingRepo {
 
     }
 
-    public List<Booking> findAll() { return new ArrayList<Booking>(data.values()); }
+    public List<Booking> getAll() { return new ArrayList<Booking>(data.values()); }
     public Optional<Booking> findById(Long id) { return Optional.ofNullable(data.get(id)); }
+
     public List<Booking> findByDate(LocalDate date) {
-        return data.values().stream()
-                .filter(b -> b.getCheckIn() != null && b.getCheckOut() != null)
-                .filter(b -> {
-                    LocalDate in = b.getCheckIn().toInstant()
-                            .atZone(java.time.ZoneId.systemDefault())
-                            .toLocalDate();
-                    LocalDate out = b.getCheckOut().toInstant()
-                            .atZone(java.time.ZoneId.systemDefault())
-                            .toLocalDate();
-                    return (date.isEqual(in) || date.isAfter(in)) && date.isBefore(out);
-                })
-                .toList();
+        List<Booking> result = new ArrayList<>();
+        for (Booking b : data.values()) {
+            if (b.getCheckIn() != null && b.getCheckOut() != null) {
+                LocalDate in = b.getCheckIn().toInstant().atZone(java.time.ZoneId.systemDefault()).toLocalDate();
+                LocalDate out = b.getCheckOut().toInstant().atZone(java.time.ZoneId.systemDefault()).toLocalDate();
+                if ((date.isEqual(in) || date.isAfter(in)) && date.isBefore(out)) {
+                    result.add(b);
+                }
+            }
+        }
+        return result;
     }
 
     public Booking save(Booking b) {

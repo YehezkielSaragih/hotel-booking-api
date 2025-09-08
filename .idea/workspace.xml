@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d892dd7-4f91-4419-950e-1bd0f80517f2" name="Changes" comment="fix controller">
+    <list default="true" id="9d892dd7-4f91-4419-950e-1bd0f80517f2" name="Changes" comment="integration">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hotelbookingsystem/hotelbookingsystem/src/main/java/com/example/hotelbookingsystem/controller/RoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotelbookingsystem/hotelbookingsystem/src/main/java/com/example/hotelbookingsystem/controller/RoomController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hotelbookingsystem/hotelbookingsystem/src/main/java/com/example/hotelbookingsystem/repository/RoomRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotelbookingsystem/hotelbookingsystem/src/main/java/com/example/hotelbookingsystem/repository/RoomRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hotelbookingsystem/hotelbookingsystem/src/main/java/com/example/hotelbookingsystem/controller/BookingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotelbookingsystem/hotelbookingsystem/src/main/java/com/example/hotelbookingsystem/controller/BookingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hotelbookingsystem/hotelbookingsystem/src/main/java/com/example/hotelbookingsystem/repository/BookingRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotelbookingsystem/hotelbookingsystem/src/main/java/com/example/hotelbookingsystem/repository/BookingRepo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,13 +95,22 @@
       <option name="project" value="LOCAL" />
       <updated>1757306932879</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="integration">
+      <option name="closed" value="true" />
+      <created>1757310211645</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1757310211645</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="template fix" />
     <MESSAGE value="controller" />
     <MESSAGE value="fix controller" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix controller" />
+    <MESSAGE value="integration" />
+    <option name="LAST_COMMIT_MESSAGE" value="integration" />
   </component>
 </project>
