@@ -12,7 +12,7 @@ import java.util.List;
 public class BookingController {
 
     @Autowired
-    private Booking bookingRepo;
+    private BookingRepo bookingRepo;
 
     // POST /bookings buat booking
     @PostMapping
