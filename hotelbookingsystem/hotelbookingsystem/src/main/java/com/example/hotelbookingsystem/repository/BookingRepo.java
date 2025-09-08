@@ -1,6 +1,8 @@
 package com.example.hotelbookingsystem.repository;
 
 import com.example.hotelbookingsystem.entity.Booking;
+import com.example.hotelbookingsystem.entity.Room;
+
 import java.time.LocalDate;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
@@ -40,6 +42,13 @@ public class BookingRepo {
         return b;
     }
 
-    public void delete(Long id) { data.remove(id); }
+    public void delete(Long id) {
+        Booking b = findById(id).orElse(null);
+        if(b == null) return;
+
+        b.setDeletedAt(new Date());
+        data.put(b.getBookingId(), b);
+    }
+
     public boolean exists(Long id) { return data.containsKey(id); }
 }

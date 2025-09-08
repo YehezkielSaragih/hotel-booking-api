@@ -28,6 +28,13 @@ public class RoomRepo {
         return r;
     }
 
-    public void delete(Long id) { data.remove(id); }
+    public void delete(Long id) {
+        Room r = findById(id).orElse(null);
+        if(r == null) return;
+
+        r.setDeletedAt(new Date());
+        data.put(r.getRoomId(), r);
+    }
+
     public boolean exists(Long id) { return data.containsKey(id); }
 }
