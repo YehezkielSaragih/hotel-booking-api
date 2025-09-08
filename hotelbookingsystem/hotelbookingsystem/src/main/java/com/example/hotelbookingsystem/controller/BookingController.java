@@ -27,19 +27,30 @@ public class BookingController {
 
     // POST /bookings buat booking
     @PostMapping
-    public ResponseEntity<Booking> createBooking(@RequestBody Booking booking) {
-        List<Room> validRooms = new ArrayList<>();
-
-        if (booking.getRoomList() != null) {
-            for (Room r : booking.getRoomList()) {
-                roomRepo.findById(r.getRoomId()).ifPresent(room -> {
-                    room.setAvailable(false);
-                    roomRepo.save(room);
-                    validRooms.add(room);
-                });
-            }
+    public ResponseEntity<?> createBooking(@RequestBody Booking booking) {
+        // Handle blank cust
+        if(booking.getCustomerName().isEmpty()){
+            return ResponseEntity.badRequest().build();
         }
-        booking.setRoomList(validRooms);
+        // Handle check in out
+        if(booking.getCheckIn().after(booking.getCheckOut())){
+            return ResponseEntity.badRequest().build();
+        }
+        // Handle availability
+        for (Room r : booking.getRoomList()) {
+            Room room = roomRepo.findById(r.getRoomId()).orElse(null); // langsung ambil Room
+            if (room == null) {
+                return ResponseEntity.badRequest()
+                        .body("Room with id " + r.getRoomId() + " does not exist");
+            }
+            if (!room.isAvailable()) {
+                return ResponseEntity.badRequest()
+                        .body("Room with id " + room.getRoomId() + " is not available");
+            }
+            // Set room as booked
+            room.setAvailable(false);
+            roomRepo.save(room);
+        }
         Booking savedBooking = bookingRepo.save(booking);
         return ResponseEntity.ok(savedBooking);
     }
@@ -90,10 +101,16 @@ public class BookingController {
 
     // DELETE /bookings/{id} batalkan booking
     @DeleteMapping("/{id}")
-    public ResponseEntity<Booking> cancelBooking(@PathVariable Long id) {
+    public ResponseEntity<?> cancelBooking(@PathVariable Long id) {
         Booking b = bookingRepo.findById(id).orElse(null);
         if (b == null) {
             return ResponseEntity.notFound().build();
+        }
+        for (Room r : b.getRoomList()) {
+            Room room = roomRepo.findById(r.getRoomId()).orElse(null);
+            if(room == null) continue;
+            room.setAvailable(true);
+            roomRepo.save(room);
         }
         b.setDeletedAt(new Date());
         bookingRepo.save(b);

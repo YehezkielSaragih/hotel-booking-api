@@ -34,7 +34,6 @@ public class RoomController {
     public ResponseEntity<String> checkAvailability(@PathVariable Long id) {
         Room tempRoom = roomRepo.findById(id).orElse(null);
         if(tempRoom==null) return ResponseEntity.notFound().build();
-
         if(tempRoom.isAvailable()) return ResponseEntity.ok("Available");
         return ResponseEntity.ok("Not Available");
     }

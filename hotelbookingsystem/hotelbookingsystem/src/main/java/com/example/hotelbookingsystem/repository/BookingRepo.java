@@ -13,10 +13,6 @@ public class BookingRepo {
     private final Map<Long, Booking> data = new ConcurrentHashMap<Long, Booking>();
     private final AtomicLong seq = new AtomicLong(0);
 
-    public BookingRepo(){
-
-    }
-
     public List<Booking> getAll() { return new ArrayList<Booking>(data.values()); }
     public Optional<Booking> findById(Long id) { return Optional.ofNullable(data.get(id)); }
 
