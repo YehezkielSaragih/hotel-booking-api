@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d892dd7-4f91-4419-950e-1bd0f80517f2" name="Changes" comment="integration">
+    <list default="true" id="9d892dd7-4f91-4419-950e-1bd0f80517f2" name="Changes" comment="booking room integration done">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hotelbookingsystem/hotelbookingsystem/src/main/java/com/example/hotelbookingsystem/controller/BookingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotelbookingsystem/hotelbookingsystem/src/main/java/com/example/hotelbookingsystem/controller/BookingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hotelbookingsystem/hotelbookingsystem/src/main/java/com/example/hotelbookingsystem/entity/Booking.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotelbookingsystem/hotelbookingsystem/src/main/java/com/example/hotelbookingsystem/entity/Booking.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hotelbookingsystem/hotelbookingsystem/src/main/java/com/example/hotelbookingsystem/entity/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotelbookingsystem/hotelbookingsystem/src/main/java/com/example/hotelbookingsystem/entity/Room.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hotelbookingsystem/hotelbookingsystem/src/main/java/com/example/hotelbookingsystem/repository/BookingRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotelbookingsystem/hotelbookingsystem/src/main/java/com/example/hotelbookingsystem/repository/BookingRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hotelbookingsystem/hotelbookingsystem/src/main/java/com/example/hotelbookingsystem/repository/RoomRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotelbookingsystem/hotelbookingsystem/src/main/java/com/example/hotelbookingsystem/repository/RoomRepo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,17 +44,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.HotelbookingsystemApplication.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Training/External Training/Developer Fundamental/Java Spring/hotel-booking-api&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.HotelbookingsystemApplication.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/Training/External Training/Developer Fundamental/Java Spring/hotel-booking-api",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="9d892dd7-4f91-4419-950e-1bd0f80517f2" name="Changes" comment="" />
@@ -115,7 +112,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757316260383</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="booking room integration done">
+      <option name="closed" value="true" />
+      <created>1757318247886</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1757318247886</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

@@ -36,7 +36,7 @@ public class BookingController {
         }
         // Handle availability
         for (Room r : booking.getRoomList()) {
-            Room room = roomRepo.findById(r.getRoomId()).orElse(null); // langsung ambil Room
+            Room room = roomRepo.findById(r.getRoomId()).orElse(null);
             if (room == null) {
                 return ResponseEntity.badRequest()
                         .body("Room with id " + r.getRoomId() + " does not exist");
