@@ -5,12 +5,16 @@ import com.example.hotelbookingsystem.repository.BookingRepo;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.*;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
 @RestController
+@RequestMapping("/api/bookings")
 public class BookingController {
 
     @Autowired
@@ -29,35 +33,53 @@ public class BookingController {
         if (date != null) {
             return ResponseEntity.ok(bookingRepo.findByDate(date));
         }
-        return ResponseEntity.ok(bookingRepo.findAll());
+        return ResponseEntity.ok(bookingRepo.getAll());
     }
 
     // GET /bookings/{id} detail booking
     @GetMapping("/{id}")
-    public ResponseEntity<Booking> getBookingById(@PathVariable Long id) {
+    public ResponseEntity<Booking> findBookingById(@PathVariable Long id) {
         return bookingRepo.findById(id).map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
     // PUT /bookings/{id} ubah tanggal booking
-    @PatchMapping(path="/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Booking> patch(@PathVariable Long id, @RequestBody Map<String, Object> body) {
-        Booking b = bookingRepo.findById(id).orElse(null);
-        if (b == null) return ResponseEntity.notFound().build();
-        if (body.containsKey("checkIn")) {
-            b.setCheckIn(java.sql.Date.valueOf(body.get("checkIn"))); // format yyyy-MM-dd
+    @PatchMapping(path = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Booking> patchBookingDates(
+            @PathVariable Long id,
+            @RequestBody Map<String, Object> body
+    ) {
+        Booking booking = bookingRepo.findById(id).orElse(null);
+        if (booking == null) {
+            return ResponseEntity.notFound().build();
         }
-        if (body.containsKey("checkOut")) {
-            b.setCheckOut(java.sql.Date.valueOf(body.get("checkOut"))); // format yyyy-MM-dd
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            if (body.containsKey("checkIn")) {
+                String checkInStr = body.get("checkIn").toString();
+                booking.setCheckIn(sdf.parse(checkInStr));
+            }
+            if (body.containsKey("checkOut")) {
+                String checkOutStr = body.get("checkOut").toString();
+                booking.setCheckOut(sdf.parse(checkOutStr));
+            }
+        } catch (ParseException e) {
+            return ResponseEntity.badRequest().build();
         }
-        b.setUpdatedAt(new Date()); // update timestamp
-        return ResponseEntity.ok(bookingRepo.save(b));
+        booking.setUpdatedAt(new java.util.Date());
+        Booking updatedBooking = bookingRepo.save(booking);
+        return ResponseEntity.ok(updatedBooking);
     }
 
     // DELETE /bookings/{id} batalkan booking
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> cancelBooking(@PathVariable Long id) {
-        bookingRepo.cancel(id);
-        return ResponseEntity.noContent().build();
+    public ResponseEntity<Booking> cancelBooking(@PathVariable Long id) {
+        Booking b = bookingRepo.findById(id).orElse(null);
+        if (b == null) {
+            return ResponseEntity.notFound().build();
+        }
+        b.setDeletedAt(new Date());
+        bookingRepo.save(b);
+        return ResponseEntity.ok(b);
     }
 }
