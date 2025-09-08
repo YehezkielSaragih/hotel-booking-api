@@ -19,7 +19,7 @@ public class RoomController {
     // POST /rooms tambah kamar
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Room> createRoom(@RequestBody Room room) {
-        Room savedRoom = roomRepo.save(new Room(null, true, new Date()));
+        Room savedRoom = roomRepo.save(new Room(null, true, room.getRoomName(), new Date()));
         return ResponseEntity.ok(savedRoom);
     }
 

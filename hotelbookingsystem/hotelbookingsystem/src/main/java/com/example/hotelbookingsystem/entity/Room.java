@@ -6,16 +6,25 @@ public class Room {
 
     private Long roomId;
     private boolean isAvailable;
-
+    private String roomName;
 
     private Date createdAt;
     private Date updatedAt;
     private Date deletedAt;
 
-    public Room(Long roomId, boolean isAvailable, Date createdAt) {
+    public Room(Long roomId, boolean isAvailable, String roomName, Date createdAt) {
         this.roomId = roomId;
         this.isAvailable = isAvailable;
+        this.roomName = roomName;
         this.createdAt = createdAt;
+    }
+
+    public String getRoomName() {
+        return roomName;
+    }
+
+    public void setRoomName(String roomName) {
+        this.roomName = roomName;
     }
 
     public Long getRoomId() {
