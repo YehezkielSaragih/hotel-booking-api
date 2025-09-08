@@ -6,18 +6,20 @@ import org.springframework.beans.factory.annotation.*;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.*;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @RestController
+@RequestMapping("/api/room")
 public class RoomController {
 
     @Autowired
     private RoomRepo roomRepo;
 
     // POST /rooms tambah kamar
-    @PostMapping
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Room> createRoom(@RequestBody Room room) {
-        Room savedRoom = roomRepo.save(room);
+        Room savedRoom = roomRepo.save(new Room(null, true, new Date()));
         return ResponseEntity.ok(savedRoom);
     }
 
@@ -28,12 +30,12 @@ public class RoomController {
     }
 
     // GET /rooms/{id}/availability cek ketersediaan kamar
-//    @GetMapping("/{id}/availability")
-//    public ResponseEntity<Boolean> checkAvailability(
-//            @PathVariable Long id,
-//            @RequestParam LocalDate checkIn,
-//            @RequestParam LocalDate checkOut) {
-//        boolean available = roomRepo.checkAvailability(id, checkIn, checkOut);
-//        return ResponseEntity.ok(available);
-//    }
+    @GetMapping("/{id}/availability")
+    public ResponseEntity<String> checkAvailability(@PathVariable Long id) {
+        Room tempRoom = roomRepo.findById(id).orElse(null);
+        if(tempRoom==null) return ResponseEntity.notFound().build();
+
+        if(tempRoom.isAvailable()) return ResponseEntity.ok("Available");
+        return ResponseEntity.ok("Not Available");
+    }
 }
