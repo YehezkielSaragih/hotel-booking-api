@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d892dd7-4f91-4419-950e-1bd0f80517f2" name="Changes" comment="template fix">
+    <list default="true" id="9d892dd7-4f91-4419-950e-1bd0f80517f2" name="Changes" comment="creating entity">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hotelbookingsystem/hotelbookingsystem/src/main/java/com/example/hotelbookingsystem/controller/BookingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotelbookingsystem/hotelbookingsystem/src/main/java/com/example/hotelbookingsystem/controller/BookingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hotelbookingsystem/hotelbookingsystem/src/main/java/com/example/hotelbookingsystem/controller/RoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotelbookingsystem/hotelbookingsystem/src/main/java/com/example/hotelbookingsystem/controller/RoomController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hotelbookingsystem/hotelbookingsystem/src/main/java/com/example/hotelbookingsystem/entity/Booking.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotelbookingsystem/hotelbookingsystem/src/main/java/com/example/hotelbookingsystem/entity/Booking.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hotelbookingsystem/hotelbookingsystem/src/main/java/com/example/hotelbookingsystem/entity/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotelbookingsystem/hotelbookingsystem/src/main/java/com/example/hotelbookingsystem/entity/Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hotelbookingsystem/hotelbookingsystem/src/main/java/com/example/hotelbookingsystem/repository/BookingRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotelbookingsystem/hotelbookingsystem/src/main/java/com/example/hotelbookingsystem/repository/BookingRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hotelbookingsystem/hotelbookingsystem/src/main/java/com/example/hotelbookingsystem/repository/RoomRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotelbookingsystem/hotelbookingsystem/src/main/java/com/example/hotelbookingsystem/repository/RoomRepo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,37 +26,37 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "YehezkielSaragih"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;YehezkielSaragih&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/YehezkielSaragih/hotel-booking-api.git",
-    "accountId": "f319882c-86a3-4ee1-a915-fb91f28341f7"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/YehezkielSaragih/hotel-booking-api.git&quot;,
+    &quot;accountId&quot;: &quot;f319882c-86a3-4ee1-a915-fb91f28341f7&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 7
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="32OvU5FqaadQ8Xcnd8gZZkSmr0X" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Training/External Training/Developer Fundamental/Java Spring/hotel-booking-api"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Training/External Training/Developer Fundamental/Java Spring/hotel-booking-api&quot;
   }
-}]]></component>
+}</component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="9d892dd7-4f91-4419-950e-1bd0f80517f2" name="Changes" comment="" />

@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Booking {
 
-    private int bookingId;
+    private Long bookingId;
     private String customerName;
     private Date checkIn;
     private Date checkOut;
@@ -14,7 +14,7 @@ public class Booking {
     private Date updatedAt;
     private Date deletedAt;
 
-    public Booking(int bookingId, String customerName, Date checkIn, Date checkOut, List<Room> roomList, Date createdAt) {
+    public Booking(Long bookingId, String customerName, Date checkIn, Date checkOut, List<Room> roomList, Date createdAt) {
         this.bookingId = bookingId;
         this.customerName = customerName;
         this.checkIn = checkIn;
@@ -23,11 +23,11 @@ public class Booking {
         this.createdAt = createdAt;
     }
 
-    public int getBookingId() {
+    public Long getBookingId() {
         return bookingId;
     }
 
-    public void setBookingId(int bookingId) {
+    public void setBookingId(Long bookingId) {
         this.bookingId = bookingId;
     }
 

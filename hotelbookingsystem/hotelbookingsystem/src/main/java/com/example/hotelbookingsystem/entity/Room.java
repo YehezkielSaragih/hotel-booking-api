@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Room {
 
-    private int roomId;
+    private Long roomId;
     private boolean isAvailable;
     private List<Booking> bookingList;
 
@@ -12,17 +12,17 @@ public class Room {
     private Date updatedAt;
     private Date deletedAt;
 
-    public Room(int roomId, boolean isAvailable, Date createdAt) {
+    public Room(Long roomId, boolean isAvailable, Date createdAt) {
         this.roomId = roomId;
         this.isAvailable = isAvailable;
         this.createdAt = createdAt;
     }
 
-    public int getRoomId() {
+    public Long getRoomId() {
         return roomId;
     }
 
-    public void setRoomId(int roomId) {
+    public void setRoomId(Long roomId) {
         this.roomId = roomId;
     }
 
